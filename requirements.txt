@@ -1,0 +1,10 @@
+#...For Web Scraping...#
+bs4==0.0.2
+#...For Handling Requests...#
+requests[socks]==2.31.0
+#...For Database...#
+pymongo
+#...For Grabbing Episode Information...#
+ffprobe
+#...For GUI...#
+# Tkinter is included with Python standard library
