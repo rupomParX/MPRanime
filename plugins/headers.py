@@ -7,7 +7,7 @@ import requests
 
 session = requests.Session()
 session.headers.update({
-    'authority': 'animepahe.ru',
+    'authority': 'animepahe.si',
     'accept': 'application/json, text/javascript, */*; q=0.01',
     'accept-language': 'en-US,en;q=0.9',
     'cookie': '__ddg2_=;',
@@ -19,6 +19,7 @@ session.headers.update({
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
     'x-requested-with': 'XMLHttpRequest',
-    'referer': 'https://animepahe.ru',
+    'referer': 'https://animepahe.si',
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
 })
+
