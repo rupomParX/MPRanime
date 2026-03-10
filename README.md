@@ -1,4 +1,5 @@
 # MPRanime
+A small program interact with AnimePahe and Kwik in python
 MPR anime downloader uses animepahe to download anime 
 it has simple GUI and it is very user friendly
 to build the exe file use 
