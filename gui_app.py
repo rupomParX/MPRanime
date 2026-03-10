@@ -23,7 +23,7 @@ def sanitize_folder_name(name):
     return "".join(c for c in name if c not in r'<>:"/\|?*')
 
 def search_anime(query):
-    url = f"https://animepahe.ru/api?m=search&q={query.replace(' ', '+')}"
+    url = f"https://animepahe.si/api?m=search&q={query.replace(' ', '+')}"
     try:
         resp = session.get(url, timeout=10)
         resp.raise_for_status()
@@ -35,7 +35,7 @@ def search_anime(query):
 
 def get_episodes(session_id):
     # Fetch all pages of episodes for the anime
-    url = f"https://animepahe.ru/api?m=release&id={session_id}&sort=episode_asc&page=1"
+    url = f"https://animepahe.si/api?m=release&id={session_id}&sort=episode_asc&page=1"
     try:
         resp = session.get(url, timeout=10)
         resp.raise_for_status()
@@ -44,7 +44,7 @@ def get_episodes(session_id):
         last_page = int(data.get('last_page', 1))
         # Fetch additional pages if needed
         for page in range(2, last_page + 1):
-            page_url = f"https://animepahe.ru/api?m=release&id={session_id}&sort=episode_asc&page={page}"
+            page_url = f"https://animepahe.si/api?m=release&id={session_id}&sort=episode_asc&page={page}"
             resp = session.get(page_url, timeout=10)
             resp.raise_for_status()
             page_data = resp.json()
@@ -55,7 +55,7 @@ def get_episodes(session_id):
         return []
 
 def get_download_links(anime_session, episode_session):
-    url = f"https://animepahe.ru/play/{anime_session}/{episode_session}"
+    url = f"https://animepahe.si/play/{anime_session}/{episode_session}"
     try:
         resp = session.get(url, timeout=10)
         from bs4 import BeautifulSoup
@@ -161,7 +161,7 @@ def show_help(parent):
     messagebox.showinfo("Help", help_text, parent=parent)
 
 def get_airing_anime():
-    url = "https://animepahe.ru/anime/airing"
+    url = "https://animepahe.si/anime/airing"
     try:
         resp = session.get(url, timeout=10)
         from bs4 import BeautifulSoup
@@ -182,7 +182,7 @@ def get_airing_anime():
         return []
 
 def get_latest_anime():
-    url = "https://animepahe.ru/api?m=airing&page=1"
+    url = "https://animepahe.si/api?m=airing&page=1"
     try:
         resp = session.get(url, timeout=10)
         resp.raise_for_status()

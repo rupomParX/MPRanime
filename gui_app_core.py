@@ -210,14 +210,14 @@ class AnimeDownloaderApp:
             # Try to fetch all pages using the same logic as gui_app.py
             try:
                 from plugins.headers import session as _session
-                url = f"https://animepahe.ru/api?m=release&id={session_id}&sort=episode_asc&page=1"
+                url = f"https://animepahe.si/api?m=release&id={session_id}&sort=episode_asc&page=1"
                 resp = _session.get(url, timeout=10)
                 resp.raise_for_status()
                 data = resp.json()
                 episodes = data.get('data', [])
                 last_page = int(data.get('last_page', 1))
                 for page in range(2, last_page + 1):
-                    page_url = f"https://animepahe.ru/api?m=release&id={session_id}&sort=episode_asc&page={page}"
+                    page_url = f"https://animepahe.si/api?m=release&id={session_id}&sort=episode_asc&page={page}"
                     resp = _session.get(page_url, timeout=10)
                     resp.raise_for_status()
                     page_data = resp.json()
